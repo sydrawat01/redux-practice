@@ -37,4 +37,5 @@
 .nav-header a:hover,
 .nav-header a.active {
   border-bottom: 3px solid rgb(0, 76, 163);
+  color: rgb(0, 76, 163);
 }
