@@ -1,6 +1,7 @@
 import FavouriteItem from '../components/FavouriteItem/FavouriteItem';
 
 import { useSelector } from 'react-redux';
+import classes from './Favourites.module.css';
 
 const Favourites = (props) => {
   const data = useSelector((state) => state.shop.products);
@@ -13,11 +14,14 @@ const Favourites = (props) => {
       description={item.description}
     />
   ));
-  return (
-    <>
-      <ul>{favourites}</ul>
-    </>
+  let content = (
+    <p className={classes['not-found']}>Sorry, no favourites found!</p>
   );
+  if (filteredData.length > 0) {
+    content = <ul>{favourites}</ul>;
+  }
+
+  return <>{content}</>;
 };
 
 export default Favourites;
